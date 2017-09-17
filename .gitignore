@@ -6,3 +6,4 @@ dev.sh
 settings.gradle
 gradle
 gradlew*
+update_mvn_central.sh
