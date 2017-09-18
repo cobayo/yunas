@@ -30,9 +30,6 @@ object Yunas {
         SingletonContainer.instance.add(HttpMethod.HEAD, path, controller, DefaultContentType.HTML)
     }
 
-    fun isJar() :Boolean {
-        return SingletonContainer.instance.isJar
-    }
 
     /**
      * Provide routing path for RestFul Api.

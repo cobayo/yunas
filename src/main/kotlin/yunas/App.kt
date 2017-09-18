@@ -46,9 +46,6 @@ private constructor() {
 
     private var isInit = false
 
-    var isJar = false
-        get
-
     init {
         perform(DefaultConfigurationFactory(), JettyFactory())
     }
