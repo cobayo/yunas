@@ -12,6 +12,19 @@ build.gradle
 ```
 group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.0'
 ```
+## Required kotlin plugin in build.gradle
+```
+apply plugin: 'kotlin'
+```
+Add buildscript > dependencies
+```
+classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+```
+
+dependencies in build.gradle
+```
+compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.1"
+```
 
 ## Set MainClass in build.gradle
 For Example, MainClass = sample.Main (fileName:Main.kt)
@@ -62,7 +75,7 @@ apply plugin: 'eu.appsatori.fatjar'
 
 Add buildscript > dependencies
 ```
-classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
 ```
 
 Add fatJar Config
