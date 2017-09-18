@@ -60,46 +60,46 @@ internal object Execute {
     }
 
     @Throws(Exception::class)
-    private fun bindResponse(context: Context, `object`: Any?) {
+    private fun bindResponse(context: Context, obj: Any?) {
 
 
-        if (`object` == null) {
-            // When object is null, Return Empty Only.
+        if (obj == null) {
+            // When obj is null, Return Empty Only.
             context.response.writer?.print("")
             return
         }
 
-        if (`object` is String) {
+        if (obj is String) {
 
-            // Add String to Response.
-            context.response.writer?.print(`object`.toString())
+            // If Return value is String, Always Add String to Response.(Not depends on Content-Type)
+            context.response.writer?.print(obj.toString())
             return
         }
 
 
         if (context.route.defaultContentType === DefaultContentType.JSON) {
 
-            // If ContentType is JSON and Return Any object (except String), Convert JSON String.
-            context.response.writer?.print(Json.toJson(`object`))
+            // If ContentType is JSON and Return Any obj (except String), Convert JSON String.
+            context.response.writer?.print(Json.toJson(obj))
             return
         }
 
         if (context.route.defaultContentType === DefaultContentType.HTML) {
+            // If ContentType is HTML And Return Value is Not String, Do Use Template Engine
+            if (Yunas.templateEngine == null) {
+                throw YunasExceptionProvider().notFoundTemplateEngine()
+            }
 
-            if (`object` is ModelAndView) {
-
-                // Do Use Template Engine
-                val templateEngine = Yunas.templateEngine
-                context.response.writer?.print(templateEngine.render((`object` as ModelAndView?)!!))
+            if (obj is ModelAndView) {
+                context.response.writer?.print(Yunas.templateEngine.render((obj as ModelAndView?)!!))
                 return
             }
 
             // Bind ModelAndView, When ContentType is HTML, Return Map And set viewName to Context.
             if (!BaseUtil.blank(context.viewName)) {
 
-                val templateEngine = Yunas.templateEngine
-                if (`object` is Map<*, *>) {
-                    context.response.writer?.print(templateEngine.render(ModelAndView((`object` as Map<*, *>?)!!, context.viewName!!)))
+                if (obj is Map<*, *>) {
+                    context.response.writer?.print(Yunas.templateEngine.render(ModelAndView((obj as Map<*, *>?)!!, context.viewName!!)))
                     return
                 }
 

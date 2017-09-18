@@ -7,9 +7,7 @@ import org.junit.Test
 /**
  * ConfigurationFactoryTest.
  *
- * JUnit.
  */
-
 class ConfigurationFactoryTest {
 
     @Test fun createTest() {

@@ -35,7 +35,11 @@ class YunasExceptionProvider {
 
 
     fun notFoundPath(path: String): YunasNotFoundException {
-        return YunasNotFoundException("NOT_FOUND_PATH", "not found the path: " + path)
+        return YunasNotFoundException("NOT_FOUND_PATH", "not found the path: ")
+    }
+
+    fun notFoundTemplateEngine(): YunasNotFoundException {
+        return YunasNotFoundException("NOT_FOUND_TEMPLATE_ENGINE", "Required TemplateEngine, When ContentType is HTML And Return Not String Value: ")
     }
 
 
