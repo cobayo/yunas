@@ -53,7 +53,8 @@ unzip build/distribution/xxxxx.zip
 
 ## Set Http Routing
 
-If You use the following methods  
+If You use the following methods,  
+  
 ```Yunas.Rest.get```  
 ```Yunas.Rest.post```  
 ```Yunas.Rest.put```  
@@ -97,7 +98,8 @@ GET 127.0.0.1:10421/top
 ```
 
 ### Web Routing
-If You use the following methods.  
+If You use the following methods,  
+
 ```Yunas.get```  
 ```Yunas.post```  
 
@@ -125,7 +127,7 @@ In case, Yunas choose ```src/main/resources/templates/index.html```.
 You cat set static files(css,js,img...etc) to ```src/main/resources/static/```.  
 
 For example
-```kotlin
+```
 src/main/resources/static/test.css
 
 -> http[s]://yourdomain/text.css
