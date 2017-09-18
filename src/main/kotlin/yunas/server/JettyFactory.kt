@@ -15,7 +15,6 @@ import yunas.handler.AppServletHandler
 import yunas.handler.BaseErrorHandler
 import java.io.File
 import java.util.*
-import java.util.jar.JarFile
 import javax.servlet.DispatcherType
 
 /**
@@ -83,16 +82,10 @@ class JettyFactory : EmbeddedServerFactory {
 
             try {
 
-                val jarPath = this.javaClass.protectionDomain.codeSource.location.path
-                val jarFile = JarFile(jarPath)
-                val entry = jarFile.getJarEntry(STATIC_FILES_DIR + File.separator)
+                val url = Thread.currentThread().contextClassLoader.getResource(STATIC_FILES_DIR)
 
-                if (entry != null) {
-
-                    val classPath = this.javaClass.getResource("JettyFactory.class")
-                    val path = "/yunas/server".replace("/",File.separator)
-
-                    return classPath.toURI().toASCIIString().replaceFirst(path + File.separator + "JettyFactory.class", File.separator + STATIC_FILES_DIR)
+                if (url != null) {
+                    return url.toString()
                 }
 
             } catch (e : Exception) {
