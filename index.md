@@ -97,7 +97,10 @@ GET 127.0.0.1:10421/top
 ```
 
 ### Web Routing
-If You use ```Yunas.get``` ```Yunas.post```,
+If You use the following methods.  
+```Yunas.get```  
+```Yunas.post```  
+
 ContentType is automatically set to ```text/html``` And You have to return ```ModelAndView``` or ```Map``` or ```String```  
 The default template engine by Yunas is Thymeleaf.
 
