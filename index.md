@@ -39,26 +39,58 @@ yunas.port=8080
 ```
 
 ### Launch App
-From Gradle (local)
+#### From Gradle (local)
 ```
 gradle run
 ```
 
-From Distribution by Gradle
+#### From Distribution by Gradle
 ```
-gradle distZip
-unzip build/distribution/xxxxx.zip
-./xxxxx/bin/xxxxx      
+gradle distZip  
+
+unzip build/distribution/xxxxx.zip  
+
+./xxxxx/bin/xxxxx  
 ```
+
+#### From a single excutable jar with dependencies 
+
+Use plugin: 'eu.appsatori.fatjar'
+```
+apply plugin: 'eu.appsatori.fatjar'
+```
+
+Add buildscript > dependencies
+```
+classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
+```
+
+Add fatJar Config
+```
+fatJar {
+    baseName = archivesBaseName
+}
+```
+
+Create a single executable jar with dependencies
+```
+gradle fatJar
+```
+
+Launch by Java Command
+```
+java -jar xxxx.jar
+```
+
 
 ## Set Http Routing
 
 If You use the following methods,  
   
-```Yunas.Rest.get```  
-```Yunas.Rest.post```  
-```Yunas.Rest.put```  
-```Yunas.Rest.delete```  
+Yunas.Rest.get  
+Yunas.Rest.post    
+Yunas.Rest.put    
+Yunas.Rest.delete    
   
 
 ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
@@ -100,9 +132,8 @@ GET 127.0.0.1:10421/top
 ### Web Routing
 If You use the following methods,  
 
-```Yunas.get```  
-
-```Yunas.post```  
+Yunas.get    
+Yunas.post   
 
 ContentType is automatically set to ```text/html``` And You have to return ```ModelAndView``` or ```Map``` or ```String```  
 The default template engine by Yunas is Thymeleaf.
