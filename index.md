@@ -32,7 +32,7 @@ Yunas always use  ```application.properties```
 
 ### Change default port
 The default port used by Yunas is 10421.  
-You can change default port by application.propertites as below.  
+You can change default port by application.properties as below.  
 
 ```
 yunas.port=8080
@@ -101,12 +101,14 @@ GET 127.0.0.1:10421/top
 If You use the following methods,  
 
 ```Yunas.get```  
+
 ```Yunas.post```  
 
 ContentType is automatically set to ```text/html``` And You have to return ```ModelAndView``` or ```Map``` or ```String```  
 The default template engine by Yunas is Thymeleaf.
 
-For Example
+For Example  
+
 ```
 import org.yunas.Context
 import org.yunas.Yunas  
