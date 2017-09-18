@@ -56,8 +56,6 @@ private constructor() {
             return
         }
 
-        checkResourceBase()
-
         Thread {
 
             try {
@@ -106,20 +104,4 @@ private constructor() {
         }
     }
 
-
-    /**
-     *  Dir for Static Files.
-     *
-     *  jar -> /static/...
-     *  local -> rootDir/src/main/resources/static
-     */
-    private fun checkResourceBase() {
-
-            val rootDir = this.javaClass.getResource(this.javaClass.simpleName + ".class").path
-
-            if (rootDir.contains("jar",true) && rootDir.contains("file", false)) {
-                isJar = true
-            }
-
-        }
 }
