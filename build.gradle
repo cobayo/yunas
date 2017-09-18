@@ -84,7 +84,7 @@ uploadArchives {
                 }
 
                 pom.project {
-                    name 'Yosuke Kobayashi'
+                    name 'yunas'
                     packaging 'jar'
                     description 'A kotlin web framework'
                     url 'https://cobayo.github.io/yunas'
@@ -103,7 +103,7 @@ uploadArchives {
                     developers {
                         developer {
                             id 'yunas'
-                            name 'yunas'
+                            name 'Yosuke Kobayashi'
                             email 'yunasframework@gmail.com'
                         }
                     }

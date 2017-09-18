@@ -81,16 +81,22 @@ class JettyFactory : EmbeddedServerFactory {
     private val resourceBase: String
         get() {
 
-            val jarPath = this.javaClass.protectionDomain.codeSource.location.path
-            val jarFile = JarFile(jarPath)
-            val entry = jarFile.getJarEntry(STATIC_FILES_DIR + File.separator)
+            try {
 
-            if (entry != null) {
+                val jarPath = this.javaClass.protectionDomain.codeSource.location.path
+                val jarFile = JarFile(jarPath)
+                val entry = jarFile.getJarEntry(STATIC_FILES_DIR + File.separator)
 
-                val classPath = this.javaClass.getResource("JettyFactory.class")
-                val path = "/yunas/server".replace("/",File.separator)
+                if (entry != null) {
 
-                return classPath.toURI().toASCIIString().replaceFirst(path + File.separator + "JettyFactory.class", File.separator + STATIC_FILES_DIR)
+                    val classPath = this.javaClass.getResource("JettyFactory.class")
+                    val path = "/yunas/server".replace("/",File.separator)
+
+                    return classPath.toURI().toASCIIString().replaceFirst(path + File.separator + "JettyFactory.class", File.separator + STATIC_FILES_DIR)
+                }
+
+            } catch (e : Exception) {
+                LOG.warn(e.message)
             }
 
             return System.getProperty("user.dir") +
