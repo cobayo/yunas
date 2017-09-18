@@ -53,11 +53,12 @@ unzip build/distribution/xxxxx.zip
 
 ## Set Http Routing
 
-If You use the following methods
+If You use the following methods  
 ```Yunas.Rest.get```  
 ```Yunas.Rest.post```  
 ```Yunas.Rest.put```  
 ```Yunas.Rest.delete```  
+  
 
 ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
 
