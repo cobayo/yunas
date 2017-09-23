@@ -40,6 +40,7 @@ class BaseErrorHandler : ErrorHandler() {
             response.contentType = DefaultContentType.HTML.value
             val templateEngine = Yunas.templateEngine
             response.writer.print(templateEngine.render(obj))
+            return
         }
 
         response.writer.print(obj.toString())
