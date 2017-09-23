@@ -35,7 +35,7 @@ mainClassName="sample.MainKt"
 ## Set application.properties
 Yunas can read ```src/main/resources/application.properties```  
 
-You cat set Runtime Environment (local,dev,production) to YUNAS_PROFILES_ACTIVE (environment variable).
+You can set Runtime Environment (local,dev,production) to YUNAS_PROFILES_ACTIVE (environment variable).
 ```
 export YUNAS_PROFILES_ACTIVE=local
 ```
@@ -110,8 +110,8 @@ ContentType is automatically set to ```application/json``` And Return value (exc
 
 For Example
 ```
-import org.yunas.Context
-import org.yunas.Yunas  
+import yunas.Context
+import yunas.Yunas  
 
 
 fun main(args: Array<String>) {
@@ -126,8 +126,8 @@ Hello World
 
 For Example 2
 ```
-import org.yunas.Context
-import org.yunas.Yunas  
+import yunas.Context
+import yunas.Yunas  
 
 
 fun main(args: Array<String>) {
@@ -142,7 +142,7 @@ GET 127.0.0.1:10421/top
 {"message":"Hello World"}
 ```
 
-### Web Routing
+### Routing with templates(Thymeleaf)
 If You use the following methods,  
 
 Yunas.get    
@@ -154,8 +154,8 @@ The default template engine by Yunas is Thymeleaf.
 For Example  
 
 ```
-import org.yunas.Context
-import org.yunas.Yunas  
+import yunas.Context
+import yunas.Yunas  
 
 
 fun main(args: Array<String>) {
@@ -170,7 +170,7 @@ In case, Yunas choose ```src/main/resources/templates/index.html```.
 
 ### Static files
 
-You cat set static files(css,js,img...etc) to ```src/main/resources/static/```.  
+You can set static files(css,js,img...etc) to ```src/main/resources/static/```.  
 
 For example
 ```
