@@ -1,21 +1,25 @@
-[Yunas Tutorial(Settings)](./index.md) | [Yunas Tutorial(DB)](./index_db.md)  
-[日本語](./ja/index.md)
-# Yunas Tutorial(Settings)
+[Yunas Tutorial(基本設定)](./ja/index.md) | [Yunas Tutorial(DB)](./ja/index_db.md)
+[English](./index.md)
+# Tutorial(基本設定)
 
 ## See Sample Project
 [Yunas Sample](https://github.com/cobayo/yunas-sample)
 
-## Add yunas-framework to your project
-Latest Yunas Framework Library is in Maven Central  
+## プロジェクトへの追加
+yunasライブラリはMaven Centralから取得可能です。
+
 
 build.gradle
 ```
 group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.2'
 ```
-## Required kotlin plugin in build.gradle
+## kotlin plugin を 追加してください。
+
+build.gradle
 ```
 apply plugin: 'kotlin'
 ```
+
 Add buildscript > dependencies
 ```
 classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
@@ -26,14 +30,14 @@ dependencies in build.gradle
 compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.1"
 ```
 
-## Set MainClass in build.gradle
-For Example, MainClass = sample.Main (fileName:Main.kt)
+## MainClass in build.gradle
+MainClass が sample.Main (fileName:Main.kt)　であれば、
 ```
 mainClassName="sample.MainKt"
 ```
 
-## Set application.properties
-Yunas can read ```src/main/resources/application.properties```  
+## application.properties
+```src/main/resources/application.properties```  
 
 You can set Runtime Environment (local,dev,production) to YUNAS_PROFILES_ACTIVE (environment variable).
 ```
