@@ -23,11 +23,11 @@ object YunasSessionCookieBaker {
         return CookieSigner.sign(encode) + "-" + encode
     }
 
-    fun decode(value : String?) : Map<String,String> {
+    fun decode(value : String?) : MutableMap<String,String> {
 
         val split = value?.split("-")
         if (split == null || split.size <= 1) {
-            return mapOf()
+            return mutableMapOf()
         }
 
         try {
@@ -45,12 +45,12 @@ object YunasSessionCookieBaker {
                 } else {
                     v.get(0) to v.get(1)
                 }
-            }.toMap()
+            }.toMap().toMutableMap()
 
 
         } catch (e : Exception) {
             LOG.info(e.message)
-            return mapOf()
+            return mutableMapOf()
         }
     }
 

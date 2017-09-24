@@ -26,7 +26,7 @@ class MockHttpServletResponse : HttpServletResponse {
     }
 
     override fun addCookie(cookie: Cookie?) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        // Nop
     }
 
     override fun encodeRedirectUrl(url: String?): String {

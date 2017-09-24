@@ -35,7 +35,7 @@ class MockHttpServletRequest : HttpServletRequest {
     }
 
     override fun getCookies(): Array<Cookie> {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return arrayOf()
     }
 
     override fun getParameterMap(): MutableMap<String, Array<String>> {

@@ -20,16 +20,15 @@ object CookieSigner {
 
             val secret = Yunas.configuration?.secret
             if (BaseUtil.blank(secret)) {
-                throw YunasExceptionProvider().notFoundSecret()
+                throw YunasExceptionProvider().unSetSecret()
             }
 
             return HashUtil.sha1(message + secret)
 
         } catch (e: YunasException) {
             LOG.warn(e.message)
+            throw e;
         }
-
-        return ""
 
     }
 

@@ -11,13 +11,11 @@ class YunasSessionCookieBakerTest {
 
     val data = mapOf("Yunas" to "Kotlin","Server" to "Jetty")
 
-
     @Test
     fun encodeAndDecodeTest() {
 
         // Success
         val encode = YunasSessionCookieBaker.encode(data)
-
         val data = YunasSessionCookieBaker.decode(encode)
 
         Assert.assertTrue("Kotlin".equals(data.get("Yunas")))

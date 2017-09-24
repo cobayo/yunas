@@ -9,8 +9,12 @@ import yunas.exception.YunasExceptionProvider
 import yunas.exception.YunasNotFoundException
 import yunas.http.DefaultContentType
 import yunas.http.HttpMethod
+import yunas.http.YunasSession
+import yunas.router.Route
 import yunas.util.BaseUtil
+import yunas.util.YunasSessionCookieBaker
 import java.io.IOException
+import javax.servlet.http.Cookie
 import javax.servlet.http.HttpServletRequest
 import javax.servlet.http.HttpServletResponse
 
@@ -31,7 +35,7 @@ internal object Execute {
             val route = Yunas.router.find(method, request.requestURI)
 
             // Create Context
-            val context = Context(request, response, route)
+            val context = createContext(request, response, route)
 
             // Default Headers And Status.
             context.response.contentType = route.defaultContentType.value
@@ -48,6 +52,9 @@ internal object Execute {
 
             // Execute Interceptor After Controller
             Yunas.after?.invoke(context)
+
+            // Bake Signed Cookie(Yunas Session)
+            bindYunasSession(response,context)
 
         } catch (e: YunasNotFoundException) {
             response.sendError(404)
@@ -109,4 +116,35 @@ internal object Execute {
 
         throw YunasExceptionProvider().unsupportedReturnType()
     }
+
+
+    private fun createContext (req : HttpServletRequest,res: HttpServletResponse,route: Route) : Context {
+
+        val yunasCookieSession = req.cookies?.filter { it.name == Yunas.configuration?.sessionKey }
+        val data : MutableMap<String,String> = if (yunasCookieSession == null || yunasCookieSession.isEmpty()) {
+            mutableMapOf()
+        } else {
+            YunasSessionCookieBaker.decode(yunasCookieSession.get(0).value)
+        }
+
+        return Context(req,res,route, YunasSession(data))
+
+
+    }
+
+    private fun bindYunasSession(res:HttpServletResponse,context: Context) {
+
+        val value = YunasSessionCookieBaker.encode(context.yunasSession.data)
+        val cookie = Cookie(Yunas.configuration?.sessionKey,value)
+
+        cookie.maxAge = Yunas.configuration!!.sessionMaxAge
+
+        res.addCookie(cookie)
+
+    }
+
+
+
+
+
 }

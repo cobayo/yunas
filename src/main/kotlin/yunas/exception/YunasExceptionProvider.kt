@@ -42,8 +42,8 @@ class YunasExceptionProvider {
         return YunasException("NOT_MATCH_SIGN", "not match sign : " + value)
     }
 
-    fun notFoundSecret(): YunasNotFoundException {
-        return YunasNotFoundException("NOT_FOUND_SECRET", "not found yunas.secret.required using YunasSession")
+    fun unSetSecret(): YunasException {
+        return YunasException("UNSET_SECRET", "yunas.secret.required using YunasSession")
     }
 
     fun notFoundTemplateEngine(): YunasNotFoundException {

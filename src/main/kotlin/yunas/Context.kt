@@ -1,5 +1,6 @@
 package yunas
 
+import yunas.http.YunasSession
 import yunas.router.Route
 import java.util.*
 import javax.servlet.http.HttpServletRequest
@@ -39,7 +40,14 @@ open class Context
          * Returns the current Routing Information.
          *
          */
-        val route: Route) {
+        val route: Route,
+
+        /**
+         * Returns yunasSession (Signed Cookie).
+         */
+        val yunasSession: YunasSession
+
+        ) {
 
     /**
      * Template View Name, When not using ModelAndView.
@@ -83,12 +91,4 @@ open class Context
         this.extra.put(name, value)
     }
 
-    /**
-     * Returns the current `HttpSession`
-     * associated with this request or, if there is no
-     * current session, returns a new session.
-     *
-     */
-    val session: HttpSession?
-        get() = this.request.getSession(true)
 }

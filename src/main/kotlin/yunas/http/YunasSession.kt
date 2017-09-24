@@ -13,7 +13,7 @@ import java.net.URLEncoder
  * Session Expire is yunas.session.expire in application.properties.(Default is 1 day)
  * Signer's secret key is yunas.secret in application.properties.
  */
-class YunasSession(private val data: MutableMap<String, String>) {
+class YunasSession(val data: MutableMap<String, String>) {
 
 
     fun get(key: String): String? {
@@ -30,6 +30,7 @@ class YunasSession(private val data: MutableMap<String, String>) {
             data.remove(key)
         }
     }
+
 
 
 }
