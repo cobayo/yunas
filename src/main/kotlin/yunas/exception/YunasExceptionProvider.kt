@@ -35,7 +35,15 @@ class YunasExceptionProvider {
 
 
     fun notFoundPath(path: String): YunasNotFoundException {
-        return YunasNotFoundException("NOT_FOUND_PATH", "not found the path: ")
+        return YunasNotFoundException("NOT_FOUND_PATH", "not found the path: " + path)
+    }
+
+    fun notMatchSign(value: String): YunasException {
+        return YunasException("NOT_MATCH_SIGN", "not match sign : " + value)
+    }
+
+    fun notFoundSecret(): YunasNotFoundException {
+        return YunasNotFoundException("NOT_FOUND_SECRET", "not found yunas.secret.required using YunasSession")
     }
 
     fun notFoundTemplateEngine(): YunasNotFoundException {

@@ -85,6 +85,19 @@ private constructor() {
         router.add(method, path, controller, defaultContentType)
     }
 
+    @Synchronized
+    fun kill() {
+
+            try {
+                this.server?.stop()
+            } catch (th : Throwable) {
+                // Fail to Stop
+                LOG.error(th.message)
+                th.printStackTrace()
+            }
+
+    }
+
     companion object {
 
         private val LOG = LoggerFactory.getLogger(App::class.java)
@@ -102,6 +115,7 @@ private constructor() {
             }
 
         }
+
     }
 
 }

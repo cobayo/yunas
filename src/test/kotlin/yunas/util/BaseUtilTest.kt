@@ -1,7 +1,8 @@
-import yunas.util.BaseUtil
+
 import org.junit.Test
 import org.junit.Assert.assertThat
 import org.hamcrest.CoreMatchers.`is`
+import yunas.util.BaseUtil
 
 /**
  * BaseUtilTest.

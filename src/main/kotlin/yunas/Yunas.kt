@@ -116,6 +116,11 @@ object Yunas {
             SingletonContainer.instance.errorController = errorController
         }
 
+    fun kill() {
+        SingletonContainer.instance.kill()
+    }
+
+
     /*** Private HttpMethod  */
     // Singleton.
     private object SingletonContainer {
