@@ -48,10 +48,10 @@ class DefaultConfigurationFactory : ConfigurationFactory {
         val propertyFileName = if (BaseUtil.blank(envName) || "production" == envFromProperty) ConfFileName.DEFAULT.fileName else "application-$envName.properties"
 
         // Loading from resources
-        val `in` = Thread.currentThread().contextClassLoader.getResourceAsStream(propertyFileName)
+        val inputStream = Thread.currentThread().contextClassLoader.getResourceAsStream(propertyFileName)
 
 
-        if (`in` == null) {
+        if (inputStream == null) {
 
             if (BaseUtil.blank(envName)) {
                 LOG.warn("not found application.properties")
@@ -63,7 +63,7 @@ class DefaultConfigurationFactory : ConfigurationFactory {
         }
 
         try {
-            BufferedReader(InputStreamReader(`in`)).use { reader ->
+            BufferedReader(InputStreamReader(inputStream)).use { reader ->
 
                 conf.load(reader)
 

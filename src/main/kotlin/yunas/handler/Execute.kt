@@ -21,7 +21,6 @@ import javax.servlet.http.HttpServletResponse
 /**
  * Find Controller and Create Response.
  *
- * @author yosuke kobayashi
  */
 internal object Execute {
 
