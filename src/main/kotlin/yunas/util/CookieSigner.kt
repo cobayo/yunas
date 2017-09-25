@@ -23,11 +23,11 @@ object CookieSigner {
                 throw YunasExceptionProvider().unSetSecret()
             }
 
-            return HashUtil.sha1(message + secret)
+            return HashUtil.sha256(message + secret).substring(0,42)
 
         } catch (e: YunasException) {
             LOG.warn(e.message)
-            throw e;
+            throw e
         }
 
     }
