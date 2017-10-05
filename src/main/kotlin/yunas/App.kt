@@ -15,6 +15,7 @@ import yunas.server.EmbeddedServerFactory
 import yunas.server.JettyFactory
 import yunas.template.TemplateEngine
 import yunas.template.ThymeleafEngine
+import java.lang.reflect.Executable
 
 /**
  * App Instance.
@@ -26,7 +27,7 @@ import yunas.template.ThymeleafEngine
 internal class App
 
 // Hide Constructor
-private constructor() {
+private constructor(isWeb:Boolean = true) {
 
     var configuration: Configuration? = null
         private set
@@ -47,12 +48,26 @@ private constructor() {
     private var isInit = false
 
     init {
-        perform(DefaultConfigurationFactory(), JettyFactory())
+        perform(DefaultConfigurationFactory(), JettyFactory(),isWeb)
     }
 
-    private fun perform(confFactory: ConfigurationFactory, serverFactory: EmbeddedServerFactory) {
+    private fun perform(confFactory: ConfigurationFactory, serverFactory: EmbeddedServerFactory,isWeb:Boolean) {
 
         if (isInit) {
+            return
+        }
+
+
+        // Build Configuration, Server
+        val conf  = confFactory.create()
+        this.configuration = conf
+        this.server = serverFactory.create(conf)
+
+        // Create Databases ConnectionPool
+        Databases.init(conf, DefaultDataSourceStrategy())
+
+        if (!isWeb) {
+            isInit = true
             return
         }
 
@@ -60,13 +75,6 @@ private constructor() {
 
             try {
 
-                // Build Configuration, Server
-                val conf  = confFactory.create()
-                this.configuration = conf
-                this.server = serverFactory.create(conf)
-
-                // Create Databases ConnectionPool
-                Databases.init(conf, DefaultDataSourceStrategy())
                 this.server!!.start()
                 this.server!!.join()
 
@@ -85,6 +93,10 @@ private constructor() {
         router.add(method, path, controller, defaultContentType)
     }
 
+    fun add(name:String,executable: Executable) {
+
+    }
+
     companion object {
 
         private val LOG = LoggerFactory.getLogger(App::class.java)
@@ -94,6 +106,20 @@ private constructor() {
 
             try {
                 return App()
+            } catch (th: Throwable) {
+                // Fail to init
+                LOG.error(th.message)
+                th.printStackTrace()
+                throw YunasExceptionProvider().failToInit(th.cause)
+            }
+
+        }
+
+        @Synchronized
+        fun initBatch(): App {
+
+            try {
+                return App(false)
             } catch (th: Throwable) {
                 // Fail to init
                 LOG.error(th.message)
