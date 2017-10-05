@@ -3,6 +3,7 @@ package yunas.batch
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory.getLogger
 import yunas.Batch
+import kotlin.reflect.KProperty
 import kotlin.system.exitProcess
 
 /**
@@ -27,6 +28,8 @@ open class DefaultBatchManager :BatchManager {
              exitProcess(1)
         }
     }
+
+    operator fun getValue(thisRef: Any?, property: KProperty<*>): DefaultBatchManager = DefaultBatchManager()
 
     companion object {
 
