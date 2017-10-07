@@ -11,7 +11,7 @@ import yunas.configuration.Configuration
  */
 object YunasBatch  {
 
-    private val manager: BatchManager by DefaultBatchManager()
+    private val manager: BatchManager = DefaultBatchManager()
 
     private val instance = App.initBatch()
 

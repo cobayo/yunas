@@ -15,7 +15,6 @@ import yunas.server.EmbeddedServerFactory
 import yunas.server.JettyFactory
 import yunas.template.TemplateEngine
 import yunas.template.ThymeleafEngine
-import java.lang.reflect.Executable
 
 /**
  * App Instance.

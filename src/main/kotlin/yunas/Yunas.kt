@@ -121,7 +121,6 @@ object Yunas {
     }
 
 
-    /*** Private HttpMethod  */
     // Singleton.
     private object SingletonContainer {
 
