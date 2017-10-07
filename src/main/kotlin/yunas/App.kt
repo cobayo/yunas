@@ -93,7 +93,16 @@ private constructor(isWeb:Boolean = true) {
         router.add(method, path, controller, defaultContentType)
     }
 
-    fun add(name:String,executable: Executable) {
+    @Synchronized
+    fun kill() {
+
+            try {
+                this.server?.stop()
+            } catch (th : Throwable) {
+                // Fail to Stop
+                LOG.error(th.message)
+                th.printStackTrace()
+            }
 
     }
 

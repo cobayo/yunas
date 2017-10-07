@@ -20,7 +20,8 @@ class ExecuteTest {
         val res = MockHttpServletResponse()
 
         Yunas.Rest["/execute_test", { context : Context -> "Hello" }]
-        Yunas["/execute_test_html", { context : Context -> "Hello" }]
+        Yunas["/execute_test_html", { context : Context ->
+            "Hello" }]
 
         req.requestURI = "/execute_test"
         Execute.execute(req,res,HttpMethod.GET)

@@ -25,8 +25,14 @@ internal constructor() {
     val port: Int
         get() = if (properties.getProperty("yunas.port") == null) DEFAULT_PORT else BaseUtil.parseInt(properties.getProperty("yunas.port"))
 
-    val env: String
+    val env: String?
         get() = properties.getProperty("yunas.env")
+    val secret: String?
+        get() = properties.getProperty("yunas.secret")
+    val sessionKey: String
+        get() = properties.getProperty("yunas.session.key","YUNAS_SESSION")
+    val sessionMaxAge: Int
+        get() = BaseUtil.parseInt(properties.getProperty("yunas.session.maxAge","86400"))
 
     operator fun get(key: String): String {
 

@@ -1,13 +1,18 @@
 package yunas.db
 
 /**
- * DBName.
+ * DBName in application.properties
  *
- * @author yosuke kobayashi
  */
 enum class DBName constructor(val value: String) {
 
+    /**
+     * Use yunas.db..... in application.properties
+     */
     MASTER("master"),
+    /**
+     * Use yunas.db.secondary..... in application.properties
+     */
     SECONDARY("secondary");
 
 }
