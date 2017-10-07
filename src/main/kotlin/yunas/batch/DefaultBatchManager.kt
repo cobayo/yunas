@@ -34,7 +34,6 @@ open class DefaultBatchManager :BatchManager {
     companion object {
 
         val LOGGER:Logger = getLogger(javaClass)
-
     }
 
 }

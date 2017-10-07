@@ -3,7 +3,6 @@ package yunas
 import yunas.batch.BatchManager
 import yunas.batch.DefaultBatchManager
 import yunas.configuration.Configuration
-import kotlin.properties.Delegates
 
 /**
  * Entry Point of Yunas Framework For DefaultBatchManager.
