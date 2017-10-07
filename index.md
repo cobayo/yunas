@@ -10,7 +10,7 @@ Latest Yunas Framework Library is in Maven Central
 
 build.gradle
 ```
-group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.2'
+group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
 ```
 ## Required kotlin plugin in build.gradle
 ```
