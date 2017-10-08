@@ -7,7 +7,6 @@ import yunas.configuration.Configuration
 /**
  * Entry Point of Yunas Framework For DefaultBatchManager.
  *
- * Set routing path, error handling and request interceptor.
  */
 object YunasBatch  {
 

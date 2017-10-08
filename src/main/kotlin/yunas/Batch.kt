@@ -1,8 +1,7 @@
 package yunas
 
 /**
- * FunctionalInterface of All Controllers (Except ErrorController).
+ * FunctionalInterface of All Batch modules.
  *
- * @author Yosuke Kobayashi
  */
 typealias Batch = (Array<String>) -> Unit
