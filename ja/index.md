@@ -1,67 +1,50 @@
-[Yunas Tutorial(基本設定)](./ja/index.md) | [Yunas Tutorial(DB)](./ja/index_db.md)
-[English](./index.md)
+1.[Yunas Tutorial(基本設定)](/ja/index.md)   
+2.[Yunas Tutorial(DB)](/ja/index_db.md)  
+3.[Yunas Tutorial(バッチ)](/ja/index_batch.md)  
+
+[English](/index.md)
+
 # Tutorial(基本設定)
 
 ## See Sample Project
 [Yunas Sample](https://github.com/cobayo/yunas-sample)
 
 ## プロジェクトへの追加
-yunasライブラリはMaven Centralから取得可能です。
+最新のyunasライブラリはMaven Centralから取得可能です。
 
 
 build.gradle
 ```
-group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.2'
-```
-## kotlin plugin を 追加してください。
-
-build.gradle
-```
-apply plugin: 'kotlin'
+group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
 ```
 
-Add buildscript > dependencies
-```
-classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
-```
-
-dependencies in build.gradle
-```
-compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.1"
-```
-
-## MainClass in build.gradle
-MainClass が sample.Main (fileName:Main.kt)　であれば、
-```
-mainClassName="sample.MainKt"
-```
 
 ## application.properties
 ```src/main/resources/application.properties```  
 
-You can set Runtime Environment (local,dev,production) to YUNAS_PROFILES_ACTIVE (environment variable).
+実行環境 (local,dev,production) は YUNAS_PROFILES_ACTIVE 環境変数で設定できます。
 ```
 export YUNAS_PROFILES_ACTIVE=local
 ```
-Then, Yunas use ```application-local.properties``` instead of ```application.properites```  
-If Unset YUNAS_PROFILES_ACTIVE or Set YUNAS_PROFILES_ACTIVE=production, 
-Yunas always use  ```application.properties```
+Yunasは自動的に application-<実行環境名>.properties を設定ファイルをとして選択します。  
+もし設定されていない場合、あるいは  YUNAS_PROFILES_ACTIVEに production が設定されている場合は
+自動的に  ```application.properties``` を選択します。  
 
-### Change default port
-The default port used by Yunas is 10421.  
-You can change default port by application.properties as below.  
+### デフォルト port　の変更
+デフォルトポートは 10421 になります。  
+以下のように application.properties で変更可能です。 
 
 ```
 yunas.port=8080
 ```
 
-### Launch App
-#### From Gradle (local)
+### 起動方法
+#### ローカル環境などでは以下のようにgradleコマンドで起動できます。
 ```
 gradle run
 ```
 
-#### From Distribution by Gradle
+#### 本番配布用zipを gradle distZipで作成可能です。
 ```
 gradle distZip  
 
@@ -70,26 +53,26 @@ unzip build/distribution/xxxxx.zip
 ./xxxxx/bin/xxxxx  
 ```
 
-#### From a single excutable jar with dependencies 
+#### 実行可能Jarに固める場合はfatJarの利用を勧めています。 
 
-Use plugin: 'eu.appsatori.fatjar'
+build.gradle
 ```
 apply plugin: 'eu.appsatori.fatjar'
 ```
 
-Add buildscript > dependencies
+buildscript > dependencies  に追加  
 ```
 classpath 'eu.appsatori:gradle-fatjar-plugin:0.3'
 ```
 
-Add fatJar Config
+fatJar Config を build.gradleに追加  
 ```
 fatJar {
     baseName = archivesBaseName
 }
 ```
 
-Create a single executable jar with dependencies
+jarの作成  
 ```
 gradle fatJar
 ```
@@ -102,7 +85,7 @@ java -jar xxxx.jar
 
 ## Set Http Routing
 
-If You use the following methods,  
+以下のメソッドで RestAPI用のルーティングを設定できます。 
   
 Yunas.Rest.get  
 Yunas.Rest.post    
@@ -110,9 +93,12 @@ Yunas.Rest.put
 Yunas.Rest.delete    
   
 
-ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
+ContentType は自動的に ```application/json```  となり、  
+戻り値のオブジェクトも自動的JSON Stringへ変換されます。  
+(Stringを返した場合はそのまま request bodyとして返却されます。
+自前でJSON化したい時のためです。)
 
-For Example
+例)
 ```
 import yunas.Context
 import yunas.Yunas  
@@ -123,12 +109,12 @@ fun main(args: Array<String>) {
 }
 ```
 
-GET 127.0.0.1:10421/top  
+GET 127.0.0.1:10421/top  アクセスすると、
 ```
 Hello World
 ```
 
-For Example 2
+例2)
 ```
 import yunas.Context
 import yunas.Yunas  
@@ -139,21 +125,26 @@ fun main(args: Array<String>) {
 }
 ```
 
-GET 127.0.0.1:10421/top  
+GET 127.0.0.1:10421/top  アクセスすると
 
 ```
 
 {"message":"Hello World"}
 ```
+自動的にJSON化されレスポンスされています。
 
-### Routing with templates(Thymeleaf)
-If You use the following methods,  
+### Webページ表示はThymeleafを使います。
+
+ 以下のメソッドでルーティングを設定します。
 
 Yunas.get    
 Yunas.post   
 
-ContentType is automatically set to ```text/html``` And You have to return ```ModelAndView``` or ```Map``` or ```String```  
-The default template engine by Yunas is Thymeleaf.
+ContentType は自動的に ```text/html``` となります。
+ メソッドの戻り値は```ModelAndView```  ```Map```  ```String```
+  のいずれかのである必要があります。
+Thymeleafを使わずhtml文字列を表示したい場合はStringで返してください。  
+ModelAndViewあるいはMapの場合は自動的にThymeleafのModelAndViewにセットされます。
 
 For Example  
 
@@ -167,16 +158,18 @@ fun main(args: Array<String>) {
 }
 ```
 
-```mapOf("message" to "HelloWorld") ``` You cat Use "message" as variable on Thymeleaf.  
+```mapOf("message" to "HelloWorld") ```  "message" をThymeleaf上で変数として使えます。 
 
-```index``` is Thymeleaf Template.   
-In case, Yunas choose ```src/main/resources/templates/index.html```.
+```index``` は Thymeleaf Template　です 
+以下から選ばれます。  
+ ```src/main/resources/templates/index.html```.
 
-### Static files
+### 静的ファイルについて
 
-You can set static files(css,js,img...etc) to ```src/main/resources/static/```.  
+静的ファイルは(css,js,img...etc) 以下のパスに配置してください。  
+ ```src/main/resources/static/```
 
-For example
+以下のように呼び出せます。  
 ```
 src/main/resources/static/test.css
 

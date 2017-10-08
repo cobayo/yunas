@@ -1,5 +1,9 @@
-[Yunas Tutorial(Settings)](./index.md) | [Yunas Tutorial(DB)](./index_db.md)  
-[日本語](./ja/index.md)
+1.[Yunas Tutorial(Settings)](/index.md)   
+2.[Yunas Tutorial(DB)](/index_db.md)  
+3.[Yunas Tutorial(Batch)](/index_batch.md) 
+
+[日本語](/ja/index.md)
+
 # Yunas Tutorial(Settings)
 
 ## See Sample Project
@@ -11,19 +15,6 @@ Latest Yunas Framework Library is in Maven Central
 build.gradle
 ```
 group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
-```
-## Required kotlin plugin in build.gradle
-```
-apply plugin: 'kotlin'
-```
-Add buildscript > dependencies
-```
-classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.1.1'
-```
-
-dependencies in build.gradle
-```
-compile "org.jetbrains.kotlin:kotlin-stdlib:1.1.1"
 ```
 
 ## Set MainClass in build.gradle

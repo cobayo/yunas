@@ -1,5 +1,9 @@
-[Yunas Tutorial(Settings)](./index.md) | [Yunas Tutorial(DB)](./index_db.md)  
-[日本語](./ja/index.md)
+1.[Yunas Tutorial(Settings)](/index.md)   
+2.[Yunas Tutorial(DB)](/index_db.md)  
+3.[Yunas Tutorial(Batch)](/index_batch.md) 
+
+[日本語](/ja/index.md)
+
 # Yunas Tutorial(DB Settings)
 
 ## See Sample Project
