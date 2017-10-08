@@ -19,8 +19,11 @@ group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
 ```
 
 
-## application.properties
-```src/main/resources/application.properties```  
+## application.properties  
+
+```
+src/main/resources/application.properties
+```  
 
 実行環境 (local,dev,production) は YUNAS_PROFILES_ACTIVE 環境変数で設定できます。  
 
@@ -29,7 +32,11 @@ export YUNAS_PROFILES_ACTIVE=local
 ```
 Yunasは自動的に application-<実行環境名>.properties を設定ファイルをとして選択します。  
 もし設定されていない場合、あるいは  YUNAS_PROFILES_ACTIVEに production が設定されている場合は
-自動的に  ```application.properties``` を選択します。  
+自動的に  
+```
+application.properties
+``` 
+を選択します。  
 
 ### デフォルト port　の変更
 デフォルトポートは 10421 になります。  
