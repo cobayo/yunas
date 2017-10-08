@@ -22,7 +22,8 @@ group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
 ## application.properties
 ```src/main/resources/application.properties```  
 
-実行環境 (local,dev,production) は YUNAS_PROFILES_ACTIVE 環境変数で設定できます。
+実行環境 (local,dev,production) は YUNAS_PROFILES_ACTIVE 環境変数で設定できます。  
+
 ```
 export YUNAS_PROFILES_ACTIVE=local
 ```
