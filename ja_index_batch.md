@@ -1,8 +1,8 @@
-1.[Yunas Tutorial(基本設定)](/ja/index.md)   
-2.[Yunas Tutorial(DB)](/ja/index_db.md)  
-3.[Yunas Tutorial(バッチ)](/ja/index_batch.md)  
+1.[Yunas Tutorial(基本設定)](/ja_index.md)   
+2.[Yunas Tutorial(DB)](/ja_index_db.md)  
+3.[Yunas Tutorial(バッチ)](/ja_index_batch.md)  
 
-[English](/index.md)
+[English](/)
 
 # Tutorial(バッチ)
 

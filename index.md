@@ -2,7 +2,7 @@
 2.[Yunas Tutorial(DB)](/index_db.md)  
 3.[Yunas Tutorial(Batch)](/index_batch.md) 
 
-[日本語](/ja/index.md)
+[日本語](/ja_index.md)
 
 # Yunas Tutorial(Settings)
 
