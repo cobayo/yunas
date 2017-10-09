@@ -106,22 +106,6 @@ import yunas.Yunas
 
 
 fun main(args: Array<String>) {
-   Yunas.Rest.get("/top",{context: Context ->  "Hello World"})
-}
-```
-
-GET 127.0.0.1:10421/top  
-```
-Hello World
-```
-
-For Example 2
-```
-import yunas.Context
-import yunas.Yunas  
-
-
-fun main(args: Array<String>) {
    Yunas.Rest.get("/top",{context: Context ->  mapOf("message" to "Hello World")  })
 }
 ```

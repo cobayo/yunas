@@ -106,23 +106,8 @@ ContentType は自動的に ```application/json```  となり、
 (Stringを返した場合はそのまま request bodyとして返却されます。
 自前でJSON化したい時のためです。)
 
-例)
-```
-import yunas.Context
-import yunas.Yunas  
 
-
-fun main(args: Array<String>) {
-   Yunas.Rest.get("/top",{context: Context ->  "Hello World"})
-}
-```
-
-GET 127.0.0.1:10421/top  アクセスすると、
-```
-Hello World
-```
-
-例2)
+例1)
 ```
 import yunas.Context
 import yunas.Yunas  
@@ -140,6 +125,23 @@ GET 127.0.0.1:10421/top  アクセスすると
 {"message":"Hello World"}
 ```
 自動的にJSON化されレスポンスされています。
+
+例2)
+```
+import yunas.Context
+import yunas.Yunas  
+
+
+fun main(args: Array<String>) {
+   Yunas.Rest.get("/top",{context: Context ->  "Hello World"})
+}
+```
+
+GET 127.0.0.1:10421/top  アクセスすると、
+```
+Hello World
+```
+String型を返した場合はそのままの内容がレスポンスされています。
 
 ### Webページ表示はThymeleafを使います。
 
@@ -170,7 +172,10 @@ fun main(args: Array<String>) {
 
 ```index``` は Thymeleaf Template　です 
 以下から選ばれます。  
- ```src/main/resources/templates/index.html```.
+
+```
+ src/main/resources/templates/index.html
+```
 
 ### 静的ファイルについて
 
