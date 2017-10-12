@@ -9,4 +9,12 @@ import javax.servlet.http.HttpServletRequest;
  *
  */
 public interface ErrorController extends Function2<HttpServletRequest, Integer,Object> {
+
+    public Object action(HttpServletRequest req, Integer integer);
+
+    @Override
+    default Object invoke(HttpServletRequest req, Integer integer) {
+        return action(req, integer);
+
+    }
 }
