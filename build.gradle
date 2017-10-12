@@ -1,14 +1,14 @@
 apply plugin: 'kotlin'
+apply plugin: 'java'
 apply plugin: 'eu.appsatori.fatjar'
 apply plugin: 'jacoco'
 apply plugin: "maven"
 apply plugin: "signing"
 
-
 group = 'io.github.cobayo'
 archivesBaseName='yunas-framework'
 version = '1.0.3'
-description = 'a kotlin web framework'
+description = 'A Kotlin and Java Web Framework'
 
 repositories {
     mavenCentral()
@@ -86,8 +86,8 @@ uploadArchives {
                 pom.project {
                     name 'yunas'
                     packaging 'jar'
-                    description 'A kotlin web framework'
-                    url 'https://cobayo.github.io/yunas'
+                    description 'A kotlin and Java web framework'
+                    url 'http://yunaskotlin.org'
 
                     scm {
                         url "scm:git@github.com:cobayo/yunas.git"
