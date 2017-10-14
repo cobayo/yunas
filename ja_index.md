@@ -139,7 +139,7 @@ public class Main {
              @Override
              public Object action(Context context) {
                     Map<String,String> map = new HashMap<>();
-                    map.put("message","Hello World2);
+                    map.put("message","Hello World");
                     return map;
              }
     
