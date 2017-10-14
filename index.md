@@ -14,7 +14,7 @@ Latest Yunas Framework Library is in Maven Central
 
 build.gradle
 ```
-group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.3'
+group: 'io.github.cobayo', name:'yunas-framework',version: '1.0.4'
 ```
 
 ## Set MainClass in build.gradle
@@ -99,7 +99,7 @@ Yunas.Rest.delete
 
 ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
 
-For Example
+For Example(Kotlin)
 ```
 import yunas.Context
 import yunas.Yunas  
@@ -109,6 +109,36 @@ fun main(args: Array<String>) {
    Yunas.Rest.get("/top",{context: Context ->  mapOf("message" to "Hello World")  })
 }
 ```
+
+For Example(Java)  
+```
+import yunas.Context
+import yunas.Yunas  
+import yunas.Controller
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        Yunas.Rest.INSTANCE.get("/top",new TopController());
+
+    }
+    
+    private static class TopController implements Controller {
+    
+             @Override
+             public Object action(Context context) {
+                    Map<String,String> map = new HashMap<>();
+                    map.put("message","Hello World2);
+                    return mp;
+             }
+    
+    }
+}
+
+```
+
 
 GET 127.0.0.1:10421/top  
 
