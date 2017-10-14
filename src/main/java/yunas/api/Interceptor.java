@@ -1,7 +1,8 @@
-package yunas;
+package yunas.api;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;
+import yunas.Context;
 
 /**
  * Interceptor interface for Java.

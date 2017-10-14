@@ -1,4 +1,4 @@
-package yunas;
+package yunas.api;
 
 import kotlin.Unit;
 import kotlin.jvm.functions.Function1;

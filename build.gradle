@@ -7,7 +7,7 @@ apply plugin: "signing"
 
 group = 'io.github.cobayo'
 archivesBaseName='yunas-framework'
-version = '1.0.3'
+version = '1.0.4'
 description = 'A Kotlin and Java Web Framework'
 
 repositories {
@@ -87,7 +87,7 @@ uploadArchives {
                     name 'yunas'
                     packaging 'jar'
                     description 'A kotlin and Java web framework'
-                    url 'http://yunaskotlin.org'
+                    url 'http://yunasframework.org'
 
                     scm {
                         url "scm:git@github.com:cobayo/yunas.git"
