@@ -18,7 +18,7 @@ object Yunas {
     val configuration: Configuration?
         get() = SingletonContainer.instance.configuration
 
-    operator fun get(path: String, controller: Controller) {
+    fun get(path: String, controller: Controller) {
         SingletonContainer.instance.add(HttpMethod.GET, path, controller, DefaultContentType.HTML)
     }
 
@@ -39,7 +39,7 @@ object Yunas {
      */
     object Rest {
 
-        operator fun get(path: String, controller: Controller) {
+        fun get(path: String, controller: Controller) {
             SingletonContainer.instance.add(HttpMethod.GET, path, controller, DefaultContentType.JSON)
         }
 
@@ -63,7 +63,7 @@ object Yunas {
             SingletonContainer.instance.add(HttpMethod.OPTIONS, path, controller, DefaultContentType.JSON)
         }
 
-        operator fun get(path: String, controller: Controller, defaultContentType: DefaultContentType) {
+        fun get(path: String, controller: Controller, defaultContentType: DefaultContentType) {
             SingletonContainer.instance.add(HttpMethod.GET, path, controller, defaultContentType)
         }
 
