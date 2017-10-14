@@ -107,7 +107,8 @@ ContentType は自動的に ```application/json```  となり、
 自前でJSON化したい時のためです。)
 
 
-例1)
+例1(Kotlin)
+
 ```
 import yunas.Context
 import yunas.Yunas  
@@ -118,6 +119,35 @@ fun main(args: Array<String>) {
 }
 ```
 
+例1(Java)  
+```
+import yunas.Context
+import yunas.Yunas  
+import yunas.api.Controller
+
+public class Main {
+
+    public static void main(String[] args) {
+
+
+        Yunas.Rest.INSTANCE.get("/top",new TopController());
+
+    }
+    
+    private static class TopController implements Controller {
+    
+             @Override
+             public Object action(Context context) {
+                    Map<String,String> map = new HashMap<>();
+                    map.put("message","Hello World2);
+                    return mp;
+             }
+    
+    }
+}
+
+```
+
 GET 127.0.0.1:10421/top  アクセスすると
 
 ```
@@ -125,6 +155,8 @@ GET 127.0.0.1:10421/top  アクセスすると
 {"message":"Hello World"}
 ```
 自動的にJSON化されレスポンスされています。
+
+
 
 例2)
 ```
