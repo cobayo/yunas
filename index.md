@@ -131,7 +131,7 @@ public class Main {
              public Object action(Context context) {
                     Map<String,String> map = new HashMap<>();
                     map.put("message","Hello World2);
-                    return mp;
+                    return map;
              }
     
     }
