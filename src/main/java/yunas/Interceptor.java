@@ -1,18 +1,19 @@
-package yunas.api;
+package yunas;
 
 import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
 import yunas.Context;
+
+import java.util.function.Function;
 
 /**
  * Interceptor interface for Java.
  */
-public interface Interceptor extends Function1<Context, Unit> {
+public interface Interceptor extends Function<Context, Unit> {
 
     public void action(Context context);
 
     @Override
-    default Unit invoke(Context context) {
+    default Unit apply(Context context) {
         action(context);
         return null;
     }

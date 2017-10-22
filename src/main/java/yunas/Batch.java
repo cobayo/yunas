@@ -1,17 +1,18 @@
-package yunas.api;
+package yunas;
 
 import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
+
+import java.util.function.Function;
 
 /**
  * Batch Interface for Java.
  */
-public interface Batch extends Function1<String[], Unit> {
+public interface Batch extends Function<String[], Unit> {
 
     public void action(String[] args);
 
     @Override
-    default Unit invoke(String[] args) {
+    default Unit apply(String[] args) {
         action(args);
         return null;
     }

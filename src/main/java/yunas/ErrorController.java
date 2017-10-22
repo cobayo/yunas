@@ -1,19 +1,18 @@
-package yunas.api;
-
-import kotlin.jvm.functions.Function2;
+package yunas;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.function.BiFunction;
 
 /**
  * ErrorController Interface for Java.
  *
  */
-public interface ErrorController extends Function2<HttpServletRequest, Integer,Object> {
+public interface ErrorController extends BiFunction<HttpServletRequest, Integer,Object> {
 
     public Object action(HttpServletRequest req, Integer integer);
 
     @Override
-    default Object invoke(HttpServletRequest req, Integer integer) {
+    default Object apply(HttpServletRequest req, Integer integer) {
         return action(req, integer);
 
     }

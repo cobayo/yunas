@@ -1,10 +1,10 @@
-package yunas.db
+package yunas.db;
 
 /**
  * DBName in application.properties
  *
  */
-enum class DBName constructor(val value: String) {
+public enum DBName  {
 
     /**
      * Use yunas.db..... in application.properties
@@ -15,4 +15,14 @@ enum class DBName constructor(val value: String) {
      */
     SECONDARY("secondary");
 
+    private String value;
+
+
+    DBName(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }
