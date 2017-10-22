@@ -22,6 +22,7 @@ import java.io.IOException;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 /**
  * Find Controller and Create Response.
@@ -126,11 +127,16 @@ public class Execute {
 
     private static Context createContext (HttpServletRequest req ,HttpServletResponse res,Route route) {
 
-        Cookie yunasCookieSession = Arrays.stream(req.getCookies()).filter( c -> BaseUtil.equals(c.getName(),Yunas.getConfiguration().getSessionKey())).findFirst().orElse(null);
         Map<String,String> data = new HashMap<>();
-        if (yunasCookieSession != null) {
 
-            YunasSessionCookieBaker.decode(yunasCookieSession.getValue());
+        if (req.getCookies() == null) {
+            return new Context(req,res,route, new YunasSession(data));
+        }
+
+        Optional<Cookie> yunasCookieSession = Arrays.stream(req.getCookies()).filter(c -> BaseUtil.equals(c.getName(),Yunas.getConfiguration().getSessionKey())).findFirst();
+
+        if (yunasCookieSession.isPresent()) {
+            data = YunasSessionCookieBaker.decode(yunasCookieSession.get().getValue());
         }
 
         return new Context(req,res,route, new YunasSession(data));

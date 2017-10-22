@@ -198,8 +198,12 @@ public class ResultSetRow {
             try {
 
                 Map<String, Object> map = new LinkedHashMap<>();
+                if (!resultSet.next()) {
+                    return new ResultSetRow(map);
+                }
 
                 ResultSetMetaData metaData = resultSet.getMetaData();
+
 
                 for (int i = 0; i < metaData.getColumnCount(); i++) {
 
