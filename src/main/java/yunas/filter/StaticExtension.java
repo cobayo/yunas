@@ -1,11 +1,11 @@
-package yunas.filter
+package yunas.filter;
 
 /**
  * StaticExtension.
  *
  * @author yosuke kobayashi
  */
-enum class StaticExtension private constructor(val value: String) {
+public enum StaticExtension {
 
     CSS(".css"),
     HTML(".html"),
@@ -38,5 +38,15 @@ enum class StaticExtension private constructor(val value: String) {
     CSV(".csv"),
     MP3(".mp3"),
     MP4(".mp4"),
-    TSV(".tsv")
+    TSV(".tsv");
+
+    private String value;
+
+    StaticExtension(String value) {
+        this.value = value;
+    }
+
+    public String getValue() {
+        return value;
+    }
 }

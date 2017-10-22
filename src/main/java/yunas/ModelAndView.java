@@ -23,13 +23,13 @@ public class ModelAndView {
      * @param model Map
      * @param viewName String
      */
-    ModelAndView(Map<?, ?> model, String viewName) {
+    public ModelAndView(Map<?, ?> model, String viewName) {
         this.model = model;
         this.viewName = viewName;
         this.locale = Locale.getDefault();
     }
 
-    ModelAndView(Map<?, ?> model, String viewName, Locale locale) {
+    public ModelAndView(Map<?, ?> model, String viewName, Locale locale) {
         this.model = model;
         this.viewName = viewName;
         this.locale = locale;

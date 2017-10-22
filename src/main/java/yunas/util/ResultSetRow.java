@@ -113,7 +113,7 @@ public class ResultSetRow {
             return Integer.parseInt(BaseUtil.toString(obj));
         } catch (Exception e) {
             LOG.debug(e.getMessage());
-            return -1;
+            return 0;
         }
 
     }
@@ -135,7 +135,7 @@ public class ResultSetRow {
             return java.lang.Long.parseLong(BaseUtil.toString(obj));
         } catch (Exception e) {
             LOG.debug(e.getMessage());
-            return -1;
+            return 0;
         }
 
     }
@@ -179,15 +179,11 @@ public class ResultSetRow {
         }
 
          try {
-             String[] vals = (String[])obj;
 
-             if (vals[0].equals("")) {
-                 return null;
-             }
              return  new BigDecimal(BaseUtil.toString(obj));
         } catch (Exception e) {
             LOG.debug(e.getMessage());
-            return new BigDecimal("-1");
+            return new BigDecimal("0");
         }
 
     }

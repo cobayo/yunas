@@ -19,6 +19,7 @@ public final class CookieSigner {
         try {
 
             String secret = Yunas.getConfiguration().getSecret();
+
             if (BaseUtil.blank(secret)) {
                 throw new YunasExceptionProvider().unSetSecret();
             }

@@ -13,7 +13,7 @@ import java.util.Map;
  *
  * @author yosuke kobayashi
  */
-class Context {
+public class Context {
 
    /**
     * * Returns the current HttpServletRequest.
@@ -92,4 +92,23 @@ class Context {
         this.extra.put(name, value);
     }
 
+    public YunasSession getYunasSession() {
+        return yunasSession;
+    }
+
+    public HttpServletRequest getRequest() {
+        return request;
+    }
+
+    public HttpServletResponse getResponse() {
+        return response;
+    }
+
+    public Route getRoute() {
+        return route;
+    }
+
+    public String getViewName() {
+        return viewName;
+    }
 }

@@ -1,20 +1,16 @@
 package yunas;
 
-import kotlin.Unit;
-import yunas.Context;
-
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 /**
  * Interceptor interface for Java.
  */
-public interface Interceptor extends Function<Context, Unit> {
+public interface Interceptor extends Consumer<Context> {
 
     public void action(Context context);
 
     @Override
-    default Unit apply(Context context) {
+    default void accept(Context context) {
         action(context);
-        return null;
     }
 }

@@ -1,19 +1,16 @@
 package yunas;
 
-import kotlin.Unit;
-
-import java.util.function.Function;
+import java.util.function.Consumer;
 
 /**
  * Batch Interface for Java.
  */
-public interface Batch extends Function<String[], Unit> {
+public interface Batch extends Consumer<String[]> {
 
     public void action(String[] args);
 
     @Override
-    default Unit apply(String[] args) {
+    default void accept(String[] args) {
         action(args);
-        return null;
     }
 }

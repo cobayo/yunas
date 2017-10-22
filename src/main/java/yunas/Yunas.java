@@ -38,7 +38,7 @@ public class Yunas {
      * Default content type is application/json.
      *
      */
-    private static class Rest {
+    public static class Rest {
 
         public static void get(String path, Controller controller) {
             SingletonContainer.instance.add(HttpMethod.GET, path, controller, DefaultContentType.JSON);
@@ -114,12 +114,12 @@ public class Yunas {
         return SingletonContainer.instance.getErrorController();
     }
 
-    public void setErrorHandler(ErrorController errorHandler) {
+    public static void setErrorHandler(ErrorController errorHandler) {
         SingletonContainer.instance.setErrorController(errorHandler);
     }
 
 
-    public void kill() {
+    public static void kill() {
         SingletonContainer.instance.kill();
     }
 

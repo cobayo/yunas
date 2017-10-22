@@ -3,10 +3,12 @@ apply plugin: 'eu.appsatori.fatjar'
 apply plugin: 'jacoco'
 apply plugin: "maven"
 apply plugin: "signing"
+apply plugin: "kotlin"
+
 
 group = 'io.github.cobayo'
 archivesBaseName='yunas-framework'
-version = '1.0.4'
+version = '1.0.5'
 description = 'A Java Web Framework'
 
 repositories {

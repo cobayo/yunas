@@ -15,6 +15,7 @@ class ConfigurationFactoryTest {
         val settingInfo = DefaultConfigurationFactory().create();
         Assert.assertThat(settingInfo.port, CoreMatchers.`is`(10421))
         println("port :" + settingInfo.port)
+        println(settingInfo.secret)
 
     }
 

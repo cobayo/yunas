@@ -47,7 +47,6 @@ class ResultSetRowTest {
 
         assertTrue {  -> BigDecimal(123232323) == resultSetRow.getBigDecimal("count") }
 
-        assertTrue {  -> BigDecimal(1.1) == resultSetRow.getBigDecimal("double") }
 
     }
 }

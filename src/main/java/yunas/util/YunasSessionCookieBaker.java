@@ -52,7 +52,7 @@ public class YunasSessionCookieBaker {
         }
     }
 
-    public Map<String,String> decode(String value ) {
+    public static Map<String,String> decode(String value ) {
 
         if (value == null) {
             return Collections.emptyMap();
