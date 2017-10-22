@@ -99,17 +99,6 @@ Yunas.Rest.delete
 
 ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
 
-For Example(Kotlin)
-```
-import yunas.Context
-import yunas.Yunas  
-
-
-fun main(args: Array<String>) {
-   Yunas.Rest.get("/top",{context: Context ->  mapOf("message" to "Hello World")  })
-}
-```
-
 For Example(Java)  
 ```
 import yunas.Context

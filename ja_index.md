@@ -107,18 +107,6 @@ ContentType は自動的に ```application/json```  となり、
 自前でJSON化したい時のためです。)
 
 
-例1(Kotlin)
-
-```
-import yunas.Context
-import yunas.Yunas  
-
-
-fun main(args: Array<String>) {
-   Yunas.Rest.get("/top",{context: Context ->  mapOf("message" to "Hello World")  })
-}
-```
-
 例1(Java)  
 ```
 import yunas.Context
@@ -156,24 +144,7 @@ GET 127.0.0.1:10421/top  アクセスすると
 ```
 自動的にJSON化されレスポンスされています。
 
-
-
-例2)
-```
-import yunas.Context
-import yunas.Yunas  
-
-
-fun main(args: Array<String>) {
-   Yunas.Rest.get("/top",{context: Context ->  "Hello World"})
-}
-```
-
-GET 127.0.0.1:10421/top  アクセスすると、
-```
-Hello World
-```
-String型を返した場合はそのままの内容がレスポンスされています。
+String型を返した場合はそのままの内容がレスポンスされます。
 
 ### Webページ表示はThymeleafを使います。
 
