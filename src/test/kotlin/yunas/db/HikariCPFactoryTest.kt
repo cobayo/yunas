@@ -15,7 +15,7 @@ import javax.sql.DataSource
 class HikariCPFactoryTest {
 
 
-    @Test fun createTest() {
+    @Ignore @Test fun createTest() {
 
         val conf = DefaultConfigurationFactory().create()
         val dataSources = HikariCPFactory().create(conf)
