@@ -1,10 +1,11 @@
-package yunas.db;
+package yunas.db.factory;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import yunas.configuration.Configuration;
+import yunas.db.DBName;
 import yunas.util.BaseUtil;
 
 import javax.sql.DataSource;

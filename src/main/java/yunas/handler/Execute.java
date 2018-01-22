@@ -13,7 +13,7 @@ import yunas.http.HttpMethod;
 import yunas.http.YunasSession;
 import yunas.router.Route;
 import yunas.util.BaseUtil;
-import yunas.util.YunasSessionCookieBaker;
+import yunas.http.YunasSessionCookieBaker;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;

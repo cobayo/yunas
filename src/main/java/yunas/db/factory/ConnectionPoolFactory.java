@@ -1,4 +1,4 @@
-package yunas.db;
+package yunas.db.factory;
 
 import yunas.configuration.Configuration;
 

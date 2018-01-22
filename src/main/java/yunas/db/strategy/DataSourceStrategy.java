@@ -1,6 +1,7 @@
-package yunas.db;
+package yunas.db.strategy;
 
 import yunas.configuration.Configuration;
+import yunas.db.factory.ConnectionPoolFactory;
 
 /**
  * DataSourceStrategy.

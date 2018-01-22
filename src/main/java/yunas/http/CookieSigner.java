@@ -1,10 +1,12 @@
-package yunas.util;
+package yunas.http;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import yunas.Yunas;
 import yunas.exception.YunasException;
 import yunas.exception.YunasExceptionProvider;
+import yunas.util.BaseUtil;
+import yunas.util.HashUtil;
 
 /**
  * Signed messages for baking signed cookies.

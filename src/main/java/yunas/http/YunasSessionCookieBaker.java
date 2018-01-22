@@ -1,8 +1,9 @@
-package yunas.util;
+package yunas.http;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import yunas.exception.YunasExceptionProvider;
+import yunas.util.BaseUtil;
 
 import java.net.URLEncoder;
 import java.util.Arrays;

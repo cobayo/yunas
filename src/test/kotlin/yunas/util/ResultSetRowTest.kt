@@ -1,6 +1,7 @@
 package yunas.util
 
 import org.junit.Test
+import yunas.db.model.ResultSetRow
 import java.math.BigDecimal
 import java.util.*
 import kotlin.test.assertTrue

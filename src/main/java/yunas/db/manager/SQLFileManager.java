@@ -1,4 +1,4 @@
-package yunas.db;
+package yunas.db.manager;
 
 
 import org.slf4j.Logger;

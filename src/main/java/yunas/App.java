@@ -7,7 +7,7 @@ import yunas.configuration.Configuration;
 import yunas.configuration.ConfigurationFactory;
 import yunas.configuration.DefaultConfigurationFactory;
 import yunas.db.Databases;
-import yunas.db.DefaultDataSourceStrategy;
+import yunas.db.strategy.DefaultDataSourceStrategy;
 import yunas.exception.YunasExceptionProvider;
 import yunas.http.DefaultContentType;
 import yunas.http.HttpMethod;

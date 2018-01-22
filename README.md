@@ -1,6 +1,6 @@
 ### What is Yunas ?
 
-Yunas is a web framework for Java based on Jetty and Thymeleaf.    
+Yunas is a web framework for Kotlin based on Jetty and Thymeleaf.    
 It's intended for getting started very quickly.
 
 ### Where are the docs?

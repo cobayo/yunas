@@ -1,7 +1,8 @@
-package yunas.util;
+package yunas.db.model;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import yunas.util.BaseUtil;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
@@ -10,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.*;
 
 /**
- * Bean of row of DB Data by SQL(Select).
+ * Row of DB Data by SQL(Select).
  * ThreadSafe.
  */
 public class ResultSetRow {

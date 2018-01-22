@@ -87,7 +87,7 @@ uploadArchives {
                 pom.project {
                     name 'yunas'
                     packaging 'jar'
-                    description 'A Java web framework'
+                    description 'A Kotlin web framework'
                     url 'http://yunasframework.org'
 
                     scm {

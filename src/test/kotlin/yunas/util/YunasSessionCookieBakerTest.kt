@@ -3,6 +3,7 @@ package yunas.util
 import org.junit.Assert
 import org.junit.Test
 import yunas.Yunas
+import yunas.http.YunasSessionCookieBaker
 
 /**
  * YunasSessionCookieBakerTest.

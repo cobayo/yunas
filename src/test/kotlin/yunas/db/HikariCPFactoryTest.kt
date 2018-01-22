@@ -5,6 +5,7 @@ import org.junit.Assert
 import org.junit.Ignore
 import org.junit.Test
 import yunas.Yunas
+import yunas.db.factory.HikariCPFactory
 import javax.sql.DataSource
 
 /**
