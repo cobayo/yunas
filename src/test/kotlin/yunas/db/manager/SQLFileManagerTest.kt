@@ -1,8 +1,7 @@
-package yunas.db
+package yunas.db.manager
 
 import org.junit.Assert
 import org.junit.Test
-import yunas.db.manager.SQLFileManager
 
 /**
  * SQLFileManagerTest.

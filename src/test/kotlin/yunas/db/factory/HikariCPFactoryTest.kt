@@ -1,11 +1,11 @@
-package yunas.db
+package yunas.db.factory
 
 import yunas.configuration.DefaultConfigurationFactory
 import org.junit.Assert
 import org.junit.Ignore
 import org.junit.Test
 import yunas.Yunas
-import yunas.db.factory.HikariCPFactory
+import yunas.db.DBName
 import javax.sql.DataSource
 
 /**

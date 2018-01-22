@@ -1,4 +1,4 @@
-package yunas.util
+package yunas.db.manager
 
 /**
  * DBManagerTest.
