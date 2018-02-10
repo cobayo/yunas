@@ -112,8 +112,9 @@ import yunas.Context
 import yunas.Yunas  
 import yunas.Controller
 
-class Main {
+object Main {
 
+    @JvmStatic
     fun main(args: Array<String>) {
 
         Yunas.Rest.get("/execute_test", TestController())      
