@@ -15,7 +15,7 @@ class SQLFileManagerTest {
         val sqlFile =  "sql/select_test.sql";
         val sql = SQLFileManager.readSql(sqlFile)
 
-        Assert.assertTrue(sql.contains("SELECT"))
+        Assert.assertTrue(sql!!.contains("SELECT"))
 
 
         val sqlEmptyFile =  "sql/select_test2.sql";

@@ -16,6 +16,7 @@ class CookieSignerTest {
         val message = "Yunas=Kotlin"
         val expect = "7bfec1a02d1c6c5a6ecaf7da2990c07ddbe00f12ca" //secret = pleasechangeme123456
         val signed =  CookieSigner.sign(message)
+        println(signed)
 
         Assert.assertTrue(expect == signed)
 

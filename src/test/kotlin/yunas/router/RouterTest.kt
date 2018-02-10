@@ -13,10 +13,6 @@ import yunas.http.HttpMethod
  */
 
 
-val test  = fun (context: Context?) : String {
-    return "world"
-}
-
 class RouterTest {
 
 
@@ -24,14 +20,21 @@ class RouterTest {
 
         val router = Router()
 
-        router.add(HttpMethod.POST,"/test",test,DefaultContentType.HTML)
+        router.add(HttpMethod.POST,"/test",TestController(),DefaultContentType.HTML)
 
         val testFunc : Route = router.find(HttpMethod.POST,"/test")
 
         val context: Context = Mockito.mock(Context::class.java)
-   //     Assert.assertTrue(testFunc.getController().apply(context) == "world")
+        Assert.assertTrue(testFunc.getController().apply(context) == "world")
 
 
+    }
+
+    private class TestController :Controller {
+
+        override fun action(context: Context): Any {
+            return "world"
+        }
     }
 
 
