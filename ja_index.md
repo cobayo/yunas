@@ -106,12 +106,33 @@ ContentType は自動的に ```application/json```  となり、
 (Stringを返した場合はそのまま request bodyとして返却されます。
 自前でJSON化したい時のためです。)
 
+例1(Kotlin)  
+```
+import yunas.Context
+import yunas.Yunas  
+import yunas.Controller
+
+class Main {
+
+    fun main(args: Array<String>) {
+
+        Yunas.Rest.get("/execute_test", TestController())      
+    }
+
+    private class TestController : Controller {
+
+        override fun action(context: Context): Any {
+            return "Hello"
+        }
+    }
+
+```
 
 例1(Java)  
 ```
 import yunas.Context
 import yunas.Yunas  
-import yunas.api.Controller
+import yunas.Controller
 
 public class Main {
 
