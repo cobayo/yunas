@@ -8,8 +8,8 @@ apply plugin: "kotlin"
 
 group = 'io.github.cobayo'
 archivesBaseName='yunas-framework'
-version = '1.0.6'
-description = 'A Java Web Framework'
+version = '1.0.7'
+description = 'A Kotlin Web Framework'
 
 repositories {
     mavenCentral()
