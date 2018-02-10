@@ -2,6 +2,7 @@ package yunas.batch
 
 import org.junit.Assert
 import org.junit.Test
+import yunas.Batch
 
 /**
  * DefaultBatchManagerTest.
@@ -16,16 +17,28 @@ class DefaultBatchManagerTest {
         System.setProperties(p)
 
         val manager = DefaultBatchManager()
-        var output: String? = null
 
-        manager.add("test",{(args) ->
-            output = args[0].toString()
-        })
+        val batch = TestBatch()
+        manager.add("test",batch)
 
         val args = arrayOf("1","2")
         manager.run(args)
 
-        Assert.assertTrue(output == "1")
+        Assert.assertTrue( batch.getOutput() == "1")
 
     }
+
+    private class TestBatch : Batch {
+
+        private var output: String? = null
+
+        override fun action(args: Array<String>) {
+            output = args[0]
+        }
+
+       fun getOutput() : String? {
+           return output
+       }
+    }
 }
+
