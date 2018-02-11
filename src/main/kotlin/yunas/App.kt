@@ -53,7 +53,7 @@ private constructor(isWeb: Boolean) {
     fun kill() {
 
         try {
-            this.server!!.stop()
+            this.server.stop()
         } catch (th: Throwable) {
             // Fail to Stop
             LOG.error(th.message)
@@ -86,8 +86,8 @@ private constructor(isWeb: Boolean) {
 
             try {
 
-                this@App.server!!.start()
-                this@App.server!!.join()
+                this@App.server.start()
+                this@App.server.join()
 
             } catch (e: Exception) {
                 e.printStackTrace()

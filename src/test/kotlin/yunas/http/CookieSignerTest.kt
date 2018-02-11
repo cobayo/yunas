@@ -2,7 +2,6 @@ package yunas.http
 
 import org.junit.Assert
 import org.junit.Test
-import yunas.http.CookieSigner
 
 /**
  * CookieSignerTest.
