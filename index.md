@@ -99,32 +99,26 @@ Yunas.Rest.delete
 
 ContentType is automatically set to ```application/json``` And Return value (except String) is convert to JSON String.
 
-For Example(Java)  
+For Example(Kotlin)  
 ```
 import yunas.Context
 import yunas.Yunas  
-import yunas.api.Controller
+import yunas.Controller
 
-public class Main {
+object Main {
 
-    public static void main(String[] args) {
+    @JvmStatic
+    fun main(args: Array<String>) {
 
-
-        Yunas.Rest.INSTANCE.get("/top",new TopController());
-
+        Yunas.Rest.get("/execute_test", TestController())      
     }
-    
-    private static class TopController implements Controller {
-    
-             @Override
-             public Object action(Context context) {
-                    Map<String,String> map = new HashMap<>();
-                    map.put("message","Hello World");
-                    return map;
-             }
-    
+
+    private class TestController : Controller {
+
+        override fun action(context: Context): Any {
+            return "Hello"
+        }
     }
-}
 
 ```
 
@@ -145,16 +139,37 @@ Yunas.post
 ContentType is automatically set to ```text/html``` And You have to return ```ModelAndView``` or ```Map``` or ```String```  
 The default template engine by Yunas is Thymeleaf.
 
-For Example  
-
+For Example (Kotlin) 
 ```
+package sample
+
+
 import yunas.Context
-import yunas.Yunas  
+import yunas.Controller
+import yunas.ModelAndView
+import yunas.Yunas
 
 
-fun main(args: Array<String>) {
-   Yunas.get("/top",{context: Context ->  ModelAndView(mapOf("message" to "HelloWorld"),"index")})
+object Main {
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+
+        // Top Page (Return html with Thymeleaf)
+        Yunas.get("/",TopController())
+    }
+
+    private class TopController : Controller {
+
+
+        override fun action(context: Context): Any {
+            return ModelAndView(mapOf("Hello" to "World"),"index")
+        }
+    }
+
 }
+
+
 ```
 
 ```mapOf("message" to "HelloWorld") ``` You cat Use "message" as variable on Thymeleaf.  

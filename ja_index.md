@@ -181,15 +181,35 @@ ContentType は自動的に ```text/html``` となります。
 Thymeleafを使わずhtml文字列を表示したい場合はStringで返してください。  
 ModelAndViewあるいはMapの場合は自動的にThymeleafのModelAndViewにセットされます。
 
-For Example  
-
+ 
+例2(Kotlin)
 ```
+package sample
+
+
 import yunas.Context
-import yunas.Yunas  
+import yunas.Controller
+import yunas.ModelAndView
+import yunas.Yunas
 
 
-fun main(args: Array<String>) {
-   Yunas.get("/top",{context: Context ->  ModelAndView(mapOf("message" to "HelloWorld"),"index")})
+object Main {
+
+    @JvmStatic
+    fun main(args: Array<String>) {
+
+        // Top Page (Return html with Thymeleaf)
+        Yunas.get("/",TopController())
+    }
+
+    private class TopController : Controller {
+
+
+        override fun action(context: Context): Any {
+            return ModelAndView(mapOf("Hello" to "World"),"index")
+        }
+    }
+
 }
 ```
 
